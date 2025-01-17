@@ -27,7 +27,6 @@ export class SwingDevInstituteRateProvider implements RateProviderInterface {
       );
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
-      console.log(error.message);
       return {
         data: null,
         statusText: error.message,

@@ -14,7 +14,6 @@ export class SecondRateProvider implements RateProviderInterface {
   public async getRates(
     exchangeRateDto: ExchangeRateDto,
   ): Promise<RateProviderDto> {
-    console.log('second provider');
     let response: AxiosResponse<SwingDevRates>;
     try {
       response = await firstValueFrom(
@@ -27,10 +26,9 @@ export class SecondRateProvider implements RateProviderInterface {
       );
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
-      console.log(error.message);
       return {
         data: null,
-        statusText: error.response.statusText,
+        statusText: error.message,
         code: HttpStatus.INTERNAL_SERVER_ERROR,
       };
     }
